@@ -1,0 +1,26 @@
+label,span,p,input,ul,li,a,h1,h2,h3,h4,h5,h6,div,select{
+ 	font-family:@typeL;
+}
+h1{
+   	.tipografia(1rem,black);
+}
+li,a{
+ 	.tipografia(0.75rem,white);
+}
+label{
+ 	.tipografia(0.75rem,black);
+}
+input{
+	.tipografia(0.75rem,black);
+}
+//////////////////////MIXING'S////////////////////////////////////////////
+.tipografia(@tam,@color){
+	font-size: @tam;
+	color:@color;
+}
+.tipografiaTit(@tam,@color){
+  font-size: @tam;
+  color:@color;
+  text-align: center;
+  font-weight: bold;
+}
