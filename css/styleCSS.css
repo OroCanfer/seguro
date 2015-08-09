@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+
+#contPTitle1 h1{
+	position: absolute;
+	border: 1px solid #0F0;
+	left: 38%;
+	color:black;
+	font-size: 12px;
+	font-family:arial;
+	text-align: center;	
+	padding-top:45px;
+	}

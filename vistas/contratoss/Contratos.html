@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Seguro</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <!--CSS GENERAL>-->
+        <link rel="stylesheet" href="../../css/general/style-General.css"></link>
+        <!--JS GENERAL>-->
+         <script type="text/javascript" src="../../js/general.js"></script> 
+        
+        <!--CSS CONTRATOS>-->
+        <link rel="stylesheet" href="../../css/contratos/style-Contratos.css">
+        <!--JS CONTRATOS>-->
+        <script type="text/javascript" src="../../js/contratos/contratos.js"></script>
+        <!--<script type="text/javascript" src="../../js/contratos/CSSLog.js"></script>--> 
+
+       <!--CSS PIKADAY>-->
+        <link rel="stylesheet" href="../../frameworks/pikaday/css/pikaday.css">
+        <link rel="stylesheet" href="../../frameworks/pikaday/css/site.css">
+        <!--JS PIKADAY>-->
+        <script type="text/javascript" src="../../frameworks/pikaday/plugins/moment.min.js"></script>
+        <script type="text/javascript" src="../../frameworks/pikaday/pikaday.js"></script>
+    </head>
+    <body>
+        <!--EMPIEZA ENCABEZADO DE LA PAGINA-->
+         <header>
+            <nav id="generalMenu">
+                <ul id="menu">  
+                  <div id="contMenu">
+                    <h1 id="imgImss">INSTITUTO MEXICANO DEL SEGURO SOCIAL</h1>
+                    <div id="imgSession" onClick="mostrarCuenta()"><img src="../../img/user.png"></div>
+                   <div id="contNav">
+                   <div id="optionNav"><span id="btnNav" onclick="desNav1()"><img src="../../img/nav.png"></img></span></div>
+                   </div>
+                </ul>
+            </nav>
+            <div id="desNav">
+            <div class="MainPane">
+              <br><br><br>
+                <div class="optionPane" onclick=""><span class="imgNoti"><a href="../subrogacion/NotificacionesDIR.html"><img src="../../img/bell.png"></span>Notificaciones</a></div>
+                <div class="optionPane" onclick="desNav3(2)"><span class="imgNoti"><img src="../../img/drawer.png"></span><label>Contratos</label></div>
+                <div class="subMain">
+                      <div class="optionPane2" onClick="contFormu(2)"><a href="../contratos/Contratos.html"><img src="../../img/list.png">Nuevo contrato</a></div>
+                </div>
+                <!-------------------------------------------------------------------------->
+                <div class="optionPane" onclick="desNav3(3)"><span class="imgNoti"><img src="../../img/database.png"></span><label>Proveedores</label></div>
+                <div class="subMain">
+                      <div class="optionPane2" onClick="contFormu(4)"><a href="../proveedores/ProveedoresReg.html"><img src="../../img/list.png">Nuevo proveedor</a></div>
+                      <div class="optionPane2" onClick="contFormu(5)"><a href="../proveedores/ProveedoresME.html"><img src="../../img/list.png">Modificar/Eliminar proveedor</a></div>
+                </div>
+                <!-------------------------------------------------------------------------->
+                <div class="optionPane" onclick="desNav3(4)"><span class="imgNoti"><img src="../../img/aid-kit.png"></span><label>Servicios-Estudios</label></div>
+                <div class="subMain">
+                      <div class="optionPane2" onClick="contFormu(6)"><a href="../serviciosEstudios/TipoServiciosRe.html"><img src="../../img/list.png">Nuevo/Modificar servicio-estudio</a></div>
+                </div>
+                <!-------------------------------------------------------------------------->
+                <div class="optionPane"></div>
+            </div>
+         </div>
+        </header>
+        <!--TERMINA ENCABEZADO DE LA PAGINA-->
+        <!--COMIENZA CUERPO DE LA PAGINA-->
+        <div class="Body"> 
+            <div id="contSession">
+              <div id="contSession2">	
+                	<div id="sessionCu"></div>
+              		<div id="cerrarSession" onClick="cerrarSession1()">Cerrar Sesión</div>
+               </div>
+            </div>
+            <div class="contP">
+            <!--Div Contenido del tramite-->
+            	<div id="contPTitle3"><h1>Contrato abierto de prestación de Servicios Médicos, Estudios Subrogados y Procedimientos Quirúrgicos</h1></div>
+               	<div id="contForm2" class="contForm">
+                    <div id="ContFor">
+                        <div class="contTitul">
+                            <div>Registrar contrato</div>
+                        </div>
+                        <form action="">
+                            <input type="text" id="fechIni" placeholder="Seleccione la fecha inicial del contrato." readonly="readonly"/>
+                            <input type="text" id="fechFin" placeholder="Seleccione la fecha final del contrato." readonly="readonly"/>
+                            <input type="text" id="numContrato" onblur="aMayus(this)" onkeypress="return limitarInput(event,0)" placeholder="Introduzca el número del contrato." maxlength="10"/>
+                            <textarea id="causa" onkeypress="return limitarInput(event,1)" placeholder="Causa por la cual se genera el contrato." rows="3" cols="33"></textarea>
+                            <input id="RFC" onkeypress="return limitarInput(event,2)" onblur="aMayus(this)" placeholder="Introduzca el RFC." type="text" maxlength="13"/>
+                            <input type="text" id="saldoIni" onkeypress="return limitarInput(event,3)" placeholder="Introduzca el saldo inicial." maxlength="6"/>
+                            <select id="proveedores" onchange="corregircomboProve()"></select>  
+                            <div class="line"></div>
+                            <div id="selServicios">  
+                                <select id="servicios" onchange="cargarEstudios(this)"></select>
+                                <div id="estudios"><label for="">Favor de seleccionar un servicio para mostrar el siguiente contenido</label></div>
+                                <div id="clinicas"></div>
+                                <div id="botones">
+                                    <input id="btnServicios" class="btns" onclick="agregarServicio()" value="Agregar servicio"type="button"/>
+                                </div>
+                                 <div id="serviciosSeleccionados"></div>
+                            </div>
+                             <div id="guardarContrato"></div>
+                             <div id="estado"></div>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <!--TERMINA CUERPO DE LA PAGINA-->
+            <!--COMIENZA PIE DE PAGINA-->
+            <footer class="footer">
+            <div id="footerInfo">IMSS, México - Derechos reservados 2015</div>
+            </footer>
+            <!--TERMINA PIE DE  PAGINA-->
+    </body>
+</html>
